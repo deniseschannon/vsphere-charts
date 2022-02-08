@@ -59,10 +59,11 @@ spec:
         - key: node-role.kubernetes.io/etcd
           effect: NoSchedule
           value: "true"
-        # CAPI managed RKE2 toleration
+        # CAPI managed RKE2 tolerations
         - key: node-role.kubernetes.io/etcd
           effect: NoExecute
-          value: "true"
+        - key: node-role.kubernetes.io/control-plane
+          effect: NoSchedule          
       {{- end }}
       dnsPolicy: "Default"
       containers:
